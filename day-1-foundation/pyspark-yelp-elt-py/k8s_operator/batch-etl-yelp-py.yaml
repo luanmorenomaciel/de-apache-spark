@@ -1,0 +1,37 @@
+apiVersion: "sparkoperator.k8s.io/v1beta2"
+kind: SparkApplication
+metadata:
+  name: batch-etl-yelp-py
+  namespace: processing
+spec:
+  type: Python
+  mode: cluster
+  image: "owshq/batch-etl-yelp-py:3.0.0"
+  imagePullPolicy: Always
+  mainApplicationFile: "local:///app/cluster.py"
+  sparkVersion: "3.0.0"
+  restartPolicy:
+    type: OnFailure
+    onFailureRetries: 3
+    onFailureRetryInterval: 10
+    onSubmissionFailureRetries: 5
+    onSubmissionFailureRetryInterval: 20
+  hadoopConf:
+    "fs.s3a.endpoint": "http://10.0.220.205:9000"
+    "fs.s3a.access.key": "YOURACCESSKEY"
+    "fs.s3a.secret.key": "YOURSECRETKEY"
+    "fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem"
+    "fs.s3a.path.style.access": "True"
+  driver:
+    cores: 1
+    coreLimit: "1200m"
+    memory: "512m"
+    labels:
+      version: 3.0.0
+    serviceAccount: default
+  executor:
+    cores: 1
+    instances: 3
+    memory: "512m"
+    labels:
+      version: 3.0.0
