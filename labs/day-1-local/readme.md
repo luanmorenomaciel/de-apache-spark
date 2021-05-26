@@ -2,7 +2,7 @@
 
 For this application we have to setup all local environment, like below:
 
-https://bitbucket.org/owshq/apache-spark/src/master/day-1-foundation/readme.md
+https://github.com/luanmorenomaciel/de-apache-spark/blob/main/day-1-foundation/readme.md
 
 We going to use pycharm as our programming IDE.
 
@@ -23,11 +23,7 @@ This application will:
 
 
 and now lets run using spark-submit, don't forget to change your application location.
-Open a terminal at your machine and execute, you can use pycharm terminal as well:
 
-
-```sh
 spark-submit \
 --master local \
 /Users/mateusoliveira/mateus/DataEngineeringWork/OwsHQ/Projects/development/bitbucket-mateus/spark-application-lab/local.py
-```
