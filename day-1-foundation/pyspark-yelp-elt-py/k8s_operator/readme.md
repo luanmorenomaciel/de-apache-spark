@@ -9,7 +9,7 @@ brew install minio/stable/mc
 brew upgrade minio/stable/mc
 
 # minio configuration
-mc config host add minio http://20.72.90.44:9000 YOURACCESSKEY YOURSECRETKEY
+mc config host add minio http://20.75.56.20:9000 YOURACCESSKEY YOURSECRETKEY
 
 # list info
 # owshq-processing-zone
@@ -91,4 +91,5 @@ helm uninstall spark -n processing
 ### total time spent
 ```sh
 # time taken to process
+43 minutes
 ```

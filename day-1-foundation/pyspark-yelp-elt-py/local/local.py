@@ -1,3 +1,8 @@
+# apache spark application processing logic [elt]
+# [input] = data lake
+# [transformation] = business logic using pyspark and spark sql
+# [output] = data warehouse
+
 # import libraries
 from os.path import abspath
 from pyspark.sql import SparkSession

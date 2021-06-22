@@ -25,6 +25,7 @@ if __name__ == '__main__':
 
     # set dynamic input file [hard-coded]
     # can be changed for input parameters [spark-submit]
+    # mount point = blob storage
     get_users_file = "dbfs:/mnt/bs-stg-files/users/*.json"
     get_business_file = "dbfs:/mnt/bs-stg-files/business/*.json"
     get_reviews_file = "dbfs:/mnt/bs-stg-files/reviews/*.json"

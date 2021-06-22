@@ -121,10 +121,13 @@ if __name__ == '__main__':
         .option("password", "yugabyte") \
         .save()
     """
+
+    """
     # write into parquet file on curated zone
     # file to be available for virtualization engine
     # using minio as storage inside of [k8s]
     df_join.write.format("parquet").mode("overwrite").save("s3a://curated/fact_reviews/")
+    """
 
     # stop session
     spark.stop()
