@@ -1,0 +1,1 @@
+{"name": "yugabytedb_ysql", "host": "yb-tservers.database.svc.cluster.local", "schema": "owshq", "login": "yugabyte", "password": "yugabyte", "port": "5433"}

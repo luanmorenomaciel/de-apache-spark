@@ -1,0 +1,33 @@
+apiVersion: "sparkoperator.k8s.io/v1beta2"
+kind: SparkApplication
+metadata:
+  name: pr-elt-business
+  namespace: processing
+spec:
+  type: Python
+  mode: cluster
+  image: "owshq/owshq-pr-elt-business:3.0.0"
+  imagePullPolicy: Always
+  mainApplicationFile: "local:///app/pr-elt-business.py"
+  sparkVersion: "3.0.0"
+  restartPolicy:
+    type: OnFailure
+    onFailureRetries: 3
+    onFailureRetryInterval: 10
+    onSubmissionFailureRetries: 5
+    onSubmissionFailureRetryInterval: 20
+  hadoopConf:
+    "fs.s3a.endpoint": "http://10.101.236.54:9000"
+  driver:
+    cores: 1
+    coreLimit: "1200m"
+    memory: "512m"
+    labels:
+      version: 3.0.0
+    serviceAccount: default
+  executor:
+    cores: 1
+    instances: 2
+    memory: "512m"
+    labels:
+      version: 3.0.0
